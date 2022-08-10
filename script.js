@@ -34,12 +34,29 @@ function playRound(playerSelection) {
         result = ('You lose, ' + computerSelection + ' beats ' + playerSelection)
     }
 
+    if (playerScore === 5) 
+    {
+        result = ('YOU WIN! RELOAD TO PLAY AGAIN')
+        disableButtons()
+    }
+
+    if (computerScore === 5) 
+    {
+        result = ('COMPUTER WINS! RELOAD TO PLAY AGAIN')
+        disableButtons()
+    }
+
     document.getElementById("result").innerHTML = result
     document.getElementById("score").innerHTML = ('Your score = ' + playerScore + ' Computer score = ' + computerScore) 
     return
 }
 
 
+function disableButtons() {
+    rock.disabled = true
+    paper.disabled = true
+    scissors.disabled = true
+}
 
 
 rock.addEventListener("click", function(){
